@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PEG SOLITAIRE</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
+    <div class="container flex-col"> 
+        <header class="flex-row">
             <div class="icon">
                 <img src="">                
             </div>
@@ -16,14 +18,14 @@
                 <h1>Peg Solitaire</h1>
             </div>
         </header>
-        <div class="main">
-            <div id="menu">
+        <div class="main flex-col">
+            <div id="menu" class="flex-row">
                 <button id="new-game"></button>
                 <button id="save-game"></button>
                 <button id="load-game"></button>
                 <button id="ranking"></button>
             </div>
-            <div id="game">
+            <div id="game" class="flex-row">
                 <div id="instructions">
                     <p>poner las instrucciones</p>
                 </div>                    
@@ -34,7 +36,7 @@
                 </div>
             </div>
         </div>
-        <footer>
+        <footer class="flex-col">
             <p><a href="https://github.com/claudiavlima/peg-solitaire" target="_blank">Github</a>aca va texto comun</p>                   
         </footer>
     </div>    
