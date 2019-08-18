@@ -6,7 +6,7 @@ header {
     align-self: stretch;
     box-sizing: border-box;
     height: 70px;
-    background-color: grey;
+    background-color: grey;    
 }
 
 .main {
@@ -20,20 +20,6 @@ footer {
     box-sizing: border-box;
     height: 70px;
     background-color: blue;
-}
-
-.flex-col {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-}
-  
-.flex-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
 }
 
 #menu button {
@@ -63,3 +49,22 @@ footer {
 	position: relative;
 	top: 1px;
 }
+
+#instructions {
+    width: 150px;
+    background-color: aquamarine;
+    border: 2px solid black;
+    padding: 7px;
+}
+
+#board {
+    margin: 15px;
+}
+
+#score {
+    width: 150px;
+    background-color: bisque;
+    border: 2px solid black;
+    padding: 7px;    
+}
+

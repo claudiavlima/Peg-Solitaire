@@ -6,16 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PEG SOLITAIRE</title>
     <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/micro-classes.css">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div class="container flex-col"> 
+    <div class="container flex-col">
         <header class="flex-row">
-            <div class="icon">
-                <img src="">                
-            </div>
-            <div class="title">
-                <h1>Peg Solitaire</h1>
+            <div>
+                <div class="icon">
+                    <img src="">
+                </div>
+                <div class="title">
+                    <h1>Peg Solitaire</h1>
+                </div>
             </div>
         </header>
         <div class="main flex-col">
@@ -23,23 +26,22 @@
                 <button id="new-game">New Game</button>
                 <button id="save-game">Save Game</button>
                 <button id="load-game">Load Game</button>
-                <button id="ranking">Best Players</button>
+                <button id="ranking">Top Players</button>
             </div>
             <div id="game" class="flex-row">
-                <div id="instructions">
+                <div id="instructions" class="flex-col">
                     <p>poner las instrucciones</p>
-                </div>                    
+                </div>
                 <div id="board">
-                </div>                    
-                <div id="score">
+                </div>
+                <div id="score" class="flex-col">
                     <p id="your-score">Score:</p>
                 </div>
             </div>
         </div>
         <footer class="flex-col">
-            <p><a href="https://github.com/claudiavlima/peg-solitaire" target="_blank">Github</a>aca va texto comun</p>                   
+            <p><a href="https://github.com/claudiavlima/peg-solitaire" target="_blank">Github</a>aca va texto comun</p>
         </footer>
-    </div>    
+    </div>
 </body>
 </html>
-                        
