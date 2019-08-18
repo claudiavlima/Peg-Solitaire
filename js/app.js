@@ -1,12 +1,11 @@
-//Creating initial board
 var board = [
-    [,, {value:1},{value:1},{value:1},,,],
-    [,, {value:1},{value:1},{value:1},,,],
-    [{value:1},{value:1}, {value:1},{value:1},{value:1},{value:1},{value:1}],
-    [{value:1},{value:1}, {value:1},{value:0},{value:1},{value:1},{value:1}],
-    [{value:1},{value:1}, {value:1},{value:1},{value:1},{value:1},{value:1}],
-    [,, {value:1},{value:1},{value:1},,,],
-    [,, {value:1},{value:1},{value:1},,,]
+    [,, {value: 1}, {value: 1}, {value: 1},,],
+    [,, {value: 1}, {value: 1}, {value: 1},,],
+    [{value: 1}, {value: 1}, {value: 1}, {value: 1}, {value: 1}, {value: 1}, {value: 1}],
+    [{value: 1}, {value: 1}, {value: 1}, {value: 0}, {value: 1}, {value: 1}, {value: 1}],
+    [{value: 1}, {value: 1}, {value: 1}, {value: 1}, {value: 1}, {value: 1}, {value: 1}],
+    [,, {value: 1}, {value: 1}, {value: 1},,],
+    [,, {value: 1}, {value: 1}, {value: 1},,],
   ]
   
   var selectedPeg = { x: undefined, y: undefined }
@@ -27,117 +26,108 @@ var board = [
     }
     return {}
   }
-
-  var createId = function(rowN,colN){
-    return 'peg-' + rowN + '-' + colN
-  }
-  var generateCell = function(cell,rowN,colN){
-  var html = '<button id="'+ createId(rowN,colN) + '" class="'
-  if(cell && cell.value) {
-    html += 'peg'
-  }
-  else if (cell && cell.value ===0){
-    html+='hole'
-  }
-  else {
-    html+='hidden'
-  }
-  html += '"></button>'
-  return html
-  }
-    
-  var generateRow =  function(row,rowN){
-  var html = '<div class"row">'
-  for (var j=0; j<row.length; j++){
-    html += generateCell(row[j],rowN,j)
   
-  }
-  html += "</div>"
-  return html
-  }
   
-  var generateBoard = function(){
-    var html = '<div class="row">'
-    for (var i=0; i<board.length; i++){
-      html += generateRow(board[i],i)
-    }
-    html += "</div>"
-  
+  var generateCell = function(cell, rowN, colN) {
+    // initial html for button with row and column position for id
+    var html = '<button id=' + createId(rowN, colN) + ' class="'
+    // if cell has value=1 add class "peg"
+    if(cell && cell.value) html += 'peg'
+    // if cell has value=0 add class "hole"
+    else if(cell && cell.value === 0) html += 'hole'
+    // otherwise add class hidden
+    else html += 'hidden'
+    // close html button tag
+    html += '"></button>'
     return html
   }
-
-  var unselectPeg = function(){
+  
+  var generateRow = function(row, rowN) {
+    var html = '<div class="row">'
+    for (var j = 0; j < row.length; j++) {
+      html += generateCell(row[j], rowN, j)
+    }
+    html += '</div>'
+    return html
+  }
+  
+  var generateBoard = function() {
+    var html = '<div class="row">'
+    for (var i = 0; i < board.length; i++) {
+      html += generateRow(board[i], i)
+    }
+    html += '</div>'
+    return html
+  }
+  
+  var unselectPeg = function(id) {
     if (selectedPeg.x !== undefined && selectedPeg.y !== undefined) {
-      var prevSelectedId = createId(selectedPeg.x,selectedPeg.y)
-      document.getElementById(prevSelectedId).className = 'peg';
+      // Generate the id of the previous selected
+      var prevSelectedId = createId(selectedPeg.x, selectedPeg.y)
+      document.getElementById(prevSelectedId).className = 'peg'
+      // Remove the previous suggestions
       var suggestion = document.getElementsByClassName('suggestion')
-      var suggestionsLength = suggetions.Length
-      for(var i =0; i< suggestionsLength;i++){
-        suggestion[0].className = 'hole'
+      for (var i = 0; i < suggestion.length; i++) {
+        suggestion[i].className = 'hole'
       }
     }
   }
-  var getElement = function(id){
+  
+  var getElement = function(id) {
+    // get element if it exists
     var element = document.getElementById(id)
     return element || {}
   }
-
-  var showSuggestions = function(){
+  
+  var showSuggestions = function() {
     var near = {
-      above: getElement(createId(selectedPeg.x - 1 , selectedPeg.y)),
-      left:  getElement(createId(selectedPeg.x  , selectedPeg.y-1)),
-      right:  getElement(createId(selectedPeg.x  , selectedPeg.y + 1)),
-      below:  getElement(createId(selectedPeg.x + 1, selectedPeg.y)),
+      above: getElement(createId(selectedPeg.x - 1, selectedPeg.y)),
+      left: getElement(createId(selectedPeg.x, selectedPeg.y - 1)),
+      right: getElement(createId(selectedPeg.x, selectedPeg.y + 1)),
+      below: getElement(createId(selectedPeg.x + 1, selectedPeg.y))
     }
-  
     var possible = {
-      above: getElement(createId(selectedPeg.x - 2 , selectedPeg.y)),
-      left:  getElement(createId(selectedPeg.x  , selectedPeg.y-2)),
-      right:  getElement(createId(selectedPeg.x  , selectedPeg.y + 2)),
-      below:  getElement(createId(selectedPeg.x + 2 , selectedPeg.y)),
+      above: getElement(createId(selectedPeg.x - 2, selectedPeg.y)),
+      left: getElement(createId(selectedPeg.x, selectedPeg.y - 2)),
+      right: getElement(createId(selectedPeg.x, selectedPeg.y + 2)),
+      below: getElement(createId(selectedPeg.x + 2, selectedPeg.y))
     }
-  
-    if (near.above.className === 'peg' && possible.above.className === 'hole') {
-      possible.above.className = 'suggestion';
-    }
-    if (near.left.className === 'peg' && possible.left.className === 'hole') {
-      possible.left.className = 'suggestion';
-    }
-    if (near.right.className === 'peg' && possible.right.className === 'hole') {
-      possible.right.className = 'suggestion';
-    }
-    if (near.below.className === 'peg' && possible.below.className === 'hole') {
-      possible.below.className = 'suggestion';
-    }
-  }
-
-  var selectPeg = function(evt){
-    var peg = evt.target;
-    var idparts = peg.id && peg.id.length ? peg.id.split("-") : [];  
-    if (idparts.length === 3)
-    {
-  if (selectedPeg.x === parseInt(idparts[1]) && selectedPeg.y === parseInt(idparts[2]))
-  {
-  unselectPeg();
-    selectedPeg.x = undefined;
-    selectedPeg.y = undefined;
-  }
-  else{
-    unselectPeg()
-      selectedPeg.x = parseInt(idparts[1])
-      selectedPeg.y = parseInt(idparts[2])
-      peg.className = "selected";
-      showSuggestions();
-  }  
-  }
+    Object.keys(near).forEach(function(side){
+      // check if the positions next to it are selected
+      // and check if possible positions are not selected
+      if (near[side].className === 'peg' && possible[side].className === 'hole') {
+        // show the possible position
+        possible[side].className = 'suggestion'
+        suggestions.push(possible[side].id)
+      }
+    })
   }
   
-  var AddPegsEventHandlers = function(pegs){
+  var selectPeg = function(evt) {
+    // Get selected html element from event
+    var peg = evt.target
+    // Parse row and column from element id
+    var position = getPositionFromId(peg.id)
+    if (position.x !== undefined && position.y !== undefined) {
+      unselectPeg();
+      if (selectedPeg.x === position.x && selectedPeg.y === position.y) {
+        selectedPeg.x = undefined
+        selectedPeg.y = undefined
+      } else {
+        selectedPeg.x = position.x
+        selectedPeg.y = position.y
+        peg.className = 'selected'
+        showSuggestions()
+      }
+    }
+  }
+  
+  var addPegsEventHandlers = function(pegs) {
     for (var i = 0; i < pegs.length; i++) {
-      pegs[i].onclick = selectPeg;
+      pegs[i].onclick = selectPeg
     }
   }
-
+  
   var movePeg = function(evt) {
     var holeId = evt.target.id
     var pos = getPositionFromId(holeId)
@@ -167,13 +157,13 @@ var board = [
   }
   
   var init = function() {
-    var boardElement = document.getElementById("board")
+    var boardElement = document.getElementById('board')
     boardElement.innerHTML = generateBoard()
-    var Pegs = boardElement.getElementsByClassName("peg");    
-    AddPegsEventHandlers(Pegs)
+    var pegs = boardElement.getElementsByClassName('peg')
+    addPegsEventHandlers(pegs)
     var holes = boardElement.getElementsByClassName('hole')
-    addHolesEventHandlers(holes)  
+    addHolesEventHandlers(holes)
   }
   
-  window.onload = init;
+  window.onload = init
   

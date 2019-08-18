@@ -7,6 +7,18 @@ header {
     box-sizing: border-box;
     height: 70px;
     background-color: grey;
+    color: red;
+}
+
+header img {    
+    width: 45px;
+    height: 45px;    
+    margin-right: 15px;      
+}
+
+h1 {
+    font-size: 29px;
+    font-weight: bold;    
 }
 
 .main {
@@ -19,7 +31,15 @@ footer {
     align-self: stretch;
     box-sizing: border-box;
     height: 70px;
-    background-color: blue;
+    background-color: #cf541b;
+    color: black;    
+}
+
+footer * {
+    font-size: 23px;
+    font-weight: bold; 
+    text-decoration: none;
+    color: black;
 }
 
 #menu button {
