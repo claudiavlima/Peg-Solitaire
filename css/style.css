@@ -1,12 +1,12 @@
 .container {
-    min-height: 100%;
+    min-height: 100%;    
 }
 
 header {
     align-self: stretch;
     box-sizing: border-box;
     height: 70px;
-    background-color: grey;
+    background-color: #333333;
     color: red;
 }
 
@@ -21,10 +21,13 @@ h1 {
     font-weight: bold;    
 }
 
+
+
 .main {
     align-self: stretch;
     box-sizing: border-box;
     flex-grow: 1;
+    justify-content: flex-start;
 }
 
 footer {
@@ -40,6 +43,10 @@ footer * {
     font-weight: bold; 
     text-decoration: none;
     color: black;
+}
+
+#menu {
+    flex-wrap: wrap;
 }
 
 #menu button {
@@ -70,18 +77,19 @@ footer * {
 	top: 1px;
 }
 
-#instructions {
-    width: 150px;
+#instructions {    
     background-color: aquamarine;
     border: 2px solid black;
     padding: 7px;
+    margin: 7px;
 }
 
 #score {
     width: 150px;
     background-color: bisque;
     border: 2px solid black;
-    padding: 7px;    
+    padding: 7px; 
+    margin-bottom: 15px;   
 }
 
 #board {
@@ -134,3 +142,32 @@ footer * {
 #board button.suggestion {
     background-color: #FFCE75;
 }
+
+@media (min-width: 480px) {
+    #board button {
+    width: 20px;
+    height: 20px;
+    margin: 7px;
+    border-radius: 20px;    
+    }
+  }
+
+  @media (min-width: 768px) {
+    #board button {
+    width: 33px;
+    height: 33px;
+    margin: 12px;
+    border-radius: 33px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    #board button {
+    width: 40px;
+    height: 40px;
+    margin: 12px;
+    border-radius: 40px;
+    }
+  }
+
+  
