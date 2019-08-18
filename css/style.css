@@ -6,7 +6,7 @@ header {
     align-self: stretch;
     box-sizing: border-box;
     height: 70px;
-    background-color: grey;    
+    background-color: grey;
 }
 
 .main {
@@ -28,7 +28,7 @@ footer {
     margin: 12px;
     box-shadow: 0px 1px 0px 0px #fff6af;	
 	background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);	
-	background-color: #ffec64;	
+	background-color: #ffec64;
 	border-radius: 6px;
 	border: 1px solid #ffaa22;
 	display: inline-block; 
@@ -37,15 +37,15 @@ footer {
 	font-family: Arial;
 	font-size: 15px;
 	font-weight: bold;
-    padding: 6px 24px;    	
+    padding: 6px 24px;
 }
 
-#menu button:hover {  	
+#menu button:hover {
 	background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);	
 	background-color: #ffab23;
 }
 
-#menu button:active {  	
+#menu button:active {
 	position: relative;
 	top: 1px;
 }
@@ -57,10 +57,6 @@ footer {
     padding: 7px;
 }
 
-#board {
-    margin: 15px;
-}
-
 #score {
     width: 150px;
     background-color: bisque;
@@ -68,3 +64,53 @@ footer {
     padding: 7px;    
 }
 
+#board {
+    margin: 15px;
+    background-color: #cccccc;
+    border-radius: 5px;
+    padding: 5px;    
+}
+
+#board button {
+    width: 15px;
+    height: 15px;
+    margin: 5px;
+    border: 2px solid #999;
+    border-radius: 15px;
+}
+
+#board button.hidden {
+    visibility: hidden;
+}
+
+#board button.peg {
+    background-color: #0000aa;
+}
+
+#board button.peg:hover {
+    background-color: #0000ff;
+}
+
+#board button.peg:active {
+    background-color: #000066;
+}
+
+#board button.hole {
+    background-color: #333333;
+}
+
+#board button.hole:hover {
+    cursor: default;
+}
+
+#board button.selected {
+    background-color: #00aa00;
+}
+
+#board button.selected:active {
+    background-color: #006600;
+}
+
+#board button.suggestion {
+    background-color: #FFCE75;
+}

@@ -1,13 +1,13 @@
 //Creamos el board inicial
 //array dcon arrays dentro, con objetos
 var board = [
-    [,, {value:1},{value:1},{value:1},,],
-    [,, {value:1},{value:1},{value:1},,],
+    [,, {value:1},{value:1},{value:1},,,],
+    [,, {value:1},{value:1},{value:1},,,],
     [{value:1},{value:1}, {value:1},{value:1},{value:1},{value:1},{value:1}],
     [{value:1},{value:1}, {value:1},{value:0},{value:1},{value:1},{value:1}],
     [{value:1},{value:1}, {value:1},{value:1},{value:1},{value:1},{value:1}],
-    [,, {value:1},{value:1},{value:1},,],
-    [,, {value:1},{value:1},{value:1},,]
+    [,, {value:1},{value:1},{value:1},,,],
+    [,, {value:1},{value:1},{value:1},,,]
   ]
   
   var selectedPeg = {x:undefined,y:undefined};
@@ -55,8 +55,9 @@ var board = [
       var prevSelectedId = createId(selectedPeg.x,selectedPeg.y)
       document.getElementById(prevSelectedId).className = 'peg';
       var suggestion = document.getElementsByClassName('suggestion')
-      for(var i =0; i< suggestion.length;i++){
-        suggestion[i].className = 'hole'
+      var suggestionsLength = suggetions.Length
+      for(var i =0; i< suggestionsLength;i++){
+        suggestion[0].className = 'hole'
       }
     }
   }
