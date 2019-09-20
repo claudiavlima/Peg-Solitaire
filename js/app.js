@@ -10,6 +10,19 @@ var board = [
   
   var selectedPeg = { x: undefined, y: undefined }
   var suggestions = []
+
+  var resetBoard = function() {
+    board = [
+      [,, {value: 1}, {value: 1}, {value: 1},,],
+      [,, {value: 1}, {value: 1}, {value: 1},,],
+      [{value: 1}, {value: 1}, {value: 1}, {value: 1}, {value: 1}, {value: 1}, {value: 1}],
+      [{value: 1}, {value: 1}, {value: 1}, {value: 0}, {value: 1}, {value: 1}, {value: 1}],
+      [{value: 1}, {value: 1}, {value: 1}, {value: 1}, {value: 1}, {value: 1}, {value: 1}],
+      [,, {value: 1}, {value: 1}, {value: 1},,],
+      [,, {value: 1}, {value: 1}, {value: 1},,],
+    ]
+    init()
+  }
   
   var createId = function(rowN, colN) {
     // create id with the row and the col number
@@ -26,7 +39,6 @@ var board = [
     }
     return {}
   }
-  
   
   var generateCell = function(cell, rowN, colN) {
     // initial html for button with row and column position for id
@@ -163,7 +175,9 @@ var board = [
     addPegsEventHandlers(pegs)
     var holes = boardElement.getElementsByClassName('hole')
     addHolesEventHandlers(holes)
+    var newGame = document.getElementById('new-game')
+    newGame.onclick = resetBoard
   }
-  
+
   window.onload = init
   
