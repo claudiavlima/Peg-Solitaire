@@ -21,6 +21,7 @@ var board = [
       [,, {value: 1}, {value: 1}, {value: 1},,],
       [,, {value: 1}, {value: 1}, {value: 1},,],
     ]
+    score = 0
     init()
   }
   
@@ -174,10 +175,12 @@ var board = [
 
   var saveBoard = function() {
     localStorage.setItem('pegBoard',JSON.stringify(board))//el tablero es un array, se convierte en string y luego se guarda en localstorage del navegador
+    localStorage.setItem('pegScore', score)
   }
 
   var loadBoard = function() {
     board = JSON.parse(localStorage.getItem('pegBoard'))
+    score = parseInt(localStorage.getItem('pegScore'))
     init()
   }
 
