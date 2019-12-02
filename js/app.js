@@ -24,6 +24,8 @@ var board = [
     init()
   }
   
+  var score = 0
+
   var createId = function(rowN, colN) {
     // create id with the row and the col number
     return 'peg-' + rowN + '-' + colN
@@ -157,6 +159,7 @@ var board = [
         board[newRow][newCol] = {value: 1}
         // cleanup selected peg
         selectedPeg = { x: undefined, y: undefined }
+        score += 10
         init()
       }
     }
@@ -178,10 +181,11 @@ var board = [
     init()
   }
 
-  var init = function() {
-    console.log(board)
+  var init = function() {    
     var boardElement = document.getElementById('board')//board es el tablero, document es toda la pagina
     boardElement.innerHTML = generateBoard()
+    var totalScore = document.getElementById('your-score')
+    totalScore.textContent = 'Your total score is: ' + score
     var pegs = boardElement.getElementsByClassName('peg')
     addPegsEventHandlers(pegs)
     var holes = boardElement.getElementsByClassName('hole')
