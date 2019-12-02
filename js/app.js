@@ -168,8 +168,19 @@ var board = [
     }
   }
   
+
+  var saveBoard = function() {
+    localStorage.setItem('pegBoard',JSON.stringify(board))//el tablero es un array, se convierte en string y luego se guarda en localstorage del navegador
+  }
+
+  var loadBoard = function() {
+    board = JSON.parse(localStorage.getItem('pegBoard'))
+    init()
+  }
+
   var init = function() {
-    var boardElement = document.getElementById('board')
+    console.log(board)
+    var boardElement = document.getElementById('board')//board es el tablero, document es toda la pagina
     boardElement.innerHTML = generateBoard()
     var pegs = boardElement.getElementsByClassName('peg')
     addPegsEventHandlers(pegs)
@@ -177,6 +188,10 @@ var board = [
     addHolesEventHandlers(holes)
     var newGame = document.getElementById('new-game')
     newGame.onclick = resetBoard
+    var saveGame = document.getElementById('save-game')
+    saveGame.onclick = saveBoard
+    var loadGame = document.getElementById('load-game')
+    loadGame.onclick = loadBoard
   }
 
   window.onload = init
