@@ -185,16 +185,22 @@ var board = [
     init()
   }
 
+  var gameOver = function(over) {
+    document.getElementById('overlay').className = 'overlay-active flex-col'
+    document.getElementById('save-score').className = 'pop-up-active'
+    document.getElementById('total-score').textContent = over + ' Your total is: ' + score + '.'
+  }
+
   var endGame = function() {
     var pegs = document.getElementsByClassName('peg')//esta en la linea 50 //obtengo todos los pges
     var peg
     if (pegs.length === 1) { //si hay uno solo
       peg = getPositionFromId(pegs[0].id)//obtengo su id, ahora se su posicion
       if (peg.x === 3 && peg.y === 3) {
-        alert('you\'ve won!')
+        gameOver('You won!')
       }
       else {
-        alert('you\'ve lost! but keep trying :)')
+        gameOver('No more moves. Try again.')
       }
     }
     else{
@@ -206,8 +212,8 @@ var board = [
           b = false
         }   
       }
-      if(b ===true){
-        alert('No more moves. Try again')
+      if(b === true){
+        gameOver('No more moves. Try again.')
         resetBoard//con parentesis ejecuta la funcion y devuleve resultado o vuelve aca, sin () termina y sigue con el resetboard sin volver aca
       }
     }
