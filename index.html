@@ -46,5 +46,23 @@
             <p><a href="https://github.com/claudiavlima/peg-solitaire" target="_blank">Github</a>aca va texto comun</p>
         </footer>
     </div>
+    <div id="overlay" class="overlay-active flex-col">
+        <form id="save-score" class="pop-up-active">
+            <div class="flex-col"> 
+                <p id="total-score">Your total score is</p>
+                <input id="player-name" placeholder="insert your name"/>
+                <label for="player-name" id="player-name-label" hidden>*More than 3 characters</label>
+                <button type="button" id="save-score" class="score-button">Save Score</button>
+                <button type="button" id="quit" class="score-button">Exit without saving</button>
+            </div> 
+        </form>
+        <div id="bestPlayerss" class="pop-up-inactive">
+            <div class="flex-col">   
+                <h1>Top players</h1>
+                <div id="scoresTable"></div>
+                <button type="button" id="score" class="score-button">Close</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
