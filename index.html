@@ -27,7 +27,7 @@
                 <button id="new-game">New Game</button>
                 <button id="save-game">Save Game</button>
                 <button id="load-game">Load Game</button>
-                <button id="ranking">Top Players</button>
+                <button id="top-players">Top Players</button>
             </div>
             <div id="game" class="flex-col">
                 <div id="instructions" class="flex-col">
@@ -51,16 +51,16 @@
             <div class="flex-col"> 
                 <p id="total-score"></p>
                 <input id="player-name" placeholder="insert your name"/>
-                <label for="player-name" id="player-name-label" hidden>*More than 3 characters</label>
+                <label for="name" id="name-label" hidden>*More than 3 characters</label>
                 <button type="button" id="save-score" class="score-button">Save Score</button>
-                <button type="button" id="quit" class="score-button">Exit without saving</button>
+                <button type="button" id="quit-score" class="score-button">Exit without saving</button>
             </div> 
         </form>
-        <div id="bestPlayerss" class="pop-up-inactive">
+        <div id="best-players" class="pop-up-inactive">
             <div class="flex-col">   
                 <h1>Top players</h1>
                 <div id="scoresTable"></div>
-                <button type="button" id="score" class="score-button">Close</button>
+                <button type="button" id="close-score" class="score-button">Close</button>
             </div>
         </div>
     </div>

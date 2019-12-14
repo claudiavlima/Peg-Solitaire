@@ -243,8 +243,124 @@ var board = [
     return pegSuggestions
   }
 
+  var quitNewScore = function() {
+    document.getElementById('overlay').className = 'overlay-inactive flex-col'
+    document.getElementById('save-score').className = 'pop-up-inactive'
+  }
+
+var getTodayDate = function() {
+  var date = new Date();
+    return date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear();
+}
+
+var compareDate =  function(a,b) {
+  var x = createDate(a);
+  var y = createDate(b);
+  var year = compareNumbers(x.y, y.y);
+  if(year != 0) {
+    return year;
+  }
+  else {
+    var month = compareNumbers(x.m, y.m);
+    if (month != 0) {
+      return month;
+    }
+    else {
+      return compareNumbers(x.d, y.d);
+    }
+  }
+}
+
+var compareNumbers = function(x,y) {
+  if (x > y) {
+    return -1;
+  }
+  else if (x < y) {
+    return 1;
+  }
+  else {
+    return 0;
+  }
+}
+
+var createDate=  function(day) {
+  var dayParts = day && day.length ? day.split('-') : [];
+    if (dayParts.length === 3) {
+      return {
+        d: parseInt(dayParts[0]),
+        m: parseInt(dayParts[1]),
+        y: parseInt(dayParts[2]),
+      };
+    }
+    return {};
+}
+
+  var saveNewScore = function() {
+    document.getElementById('name-label').hidden = true
+    var name = document.getElementById('player-name').value
+    if (name.length < 3) {
+      document.getElementById('name-label').hidden = false
+      return {}
+    }
+    var ranking
+    if (!localStorage.getItem('Rank')) {
+      ranking = []
+    }
+    else {
+      ranking = JSON.parse(localStorage.getItem('Rank'));
+    }
+    var saveScore = {
+      date: getTodayDate(),
+      name: name,
+      score: score
+    }
+    ranking.push(saveScore)
+    ranking.sort(function(a, b){
+      if (a.score > b.score) {
+        return -1
+      }
+      else if (a.score < b.score) {
+        return 1
+      }
+      else {
+        return compareDate(a, b);
+      }
+    })
+    if (ranking.length > 5) {
+      ranking.length = 5
+    }
+    localStorage.setItem('Rank', JSON.stringify(ranking))
+    document.getElementById('overlay').className = 'overlay-inactive flex-col'
+    document.getElementById('save-score').className = 'pop-up-inactive'    
+  }
+
+  var closeRanking =  function() {
+    document.getElementById('overlay').className = 'overlay-inactive flex-col'
+    document.getElementById('best-players').className = 'pop-up-inactive'
+  }
+
+  var showRanking = function(){ 
+    document.getElementById('overlay').className = 'overlay-active flex-col'
+    document.getElementById('best-players').className = 'pop-up-active'
+    var highscores = document.getElementById('scoresTable');
+    var ranking;
+    if (!localStorage.getItem('Rank')) {
+      ranking = [];
+    }
+    else {
+      ranking = JSON.parse(localStorage.getItem('Rank'));
+    }
+    var html = '<table>';
+    html += '<tr><th>Date</th><th>Name</th><th>Score</th></tr>';
+    for (let i = 0; i < ranking.length; i++) {
+      html += '<tr><td>' + ranking[i].date + '</td><td>' + ranking[i].name + '</td><td>' + ranking[i].score + '</td></tr>';
+    }
+    html += '</table>';
+    highscores.innerHTML = html;
+  }
+
   var init = function() {    
-    var boardElement = document.getElementById('board')//board es el tablero, document es toda la pagina
+    var boardElement = document.getElementById('board')//document is the whole page
     boardElement.innerHTML = generateBoard()
     var totalScore = document.getElementById('your-score')
     totalScore.textContent = 'Your total score is: ' + score
@@ -258,7 +374,15 @@ var board = [
     saveGame.onclick = saveBoard
     var loadGame = document.getElementById('load-game')
     loadGame.onclick = loadBoard
-  }
+    var topPlayers = document.getElementById('top-players')
+    topPlayers.onclick = showRanking
+    var saveScore = document.getElementById('save-score')
+    saveScore.onclick = saveNewScore
+    var quit = document.getElementById('quit-score')
+    quit.onclick = quitNewScore
+    var cancelScore = document.getElementById('close-score')
+    cancelScore.onclick = closeRanking
+  } 
 
   window.onload = init
   
