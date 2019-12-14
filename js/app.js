@@ -161,7 +161,8 @@ var board = [
         // cleanup selected peg
         selectedPeg = { x: undefined, y: undefined }
         score += 10
-        init()
+        endGame()
+        init()        
       }
     }
   }
@@ -182,6 +183,58 @@ var board = [
     board = JSON.parse(localStorage.getItem('pegBoard'))
     score = parseInt(localStorage.getItem('pegScore'))
     init()
+  }
+
+  var endGame = function() {
+    var pegs = document.getElementsByClassName('peg')//esta en la linea 50 //obtengo todos los pges
+    var peg
+    if (pegs.length === 1) { //si hay uno solo
+      peg = getPositionFromId(pegs[0].id)//obtengo su id, ahora se su posicion
+      if (peg.x === 3 && peg.y === 3) {
+        alert('you\'ve won!')
+      }
+      else {
+        alert('you\'ve lost! but keep trying :)')
+      }
+    }
+    else{
+      var b = true     
+      for (var i = 0; i < pegs.length; i++) {
+        peg = getPositionFromId(pegs[i].id)//obtengo su id, ahora se su posicion
+               
+        if(countSuggestions(peg)>0) {          
+          b = false
+        }   
+      }
+      if(b ===true){
+        alert('No more moves. Try again')
+        resetBoard//con parentesis ejecuta la funcion y devuleve resultado o vuelve aca, sin () termina y sigue con el resetboard sin volver aca
+      }
+    }
+  }
+
+  var countSuggestions =  function(peg) {
+    var pegSuggestions = 0
+    var near = {
+      above: getElement(createId(peg.x - 1, peg.y)),
+      left: getElement(createId(peg.x, peg.y - 1)),
+      right: getElement(createId(peg.x, peg.y + 1)),
+      below: getElement(createId(peg.x + 1, peg.y))
+    }
+    var possible = {
+      above: getElement(createId(peg.x - 2, peg.y)),
+      left: getElement(createId(peg.x, peg.y - 2)),
+      right: getElement(createId(peg.x, peg.y + 2)),
+      below: getElement(createId(peg.x + 2, peg.y))
+    }
+    Object.keys(near).forEach(function(side){
+      // check if the positions next to it are selected
+      // and check if possible positions are not selected
+      if (near[side].className === 'peg' && possible[side].className === 'hole') {
+        pegSuggestions++
+      }
+    })
+    return pegSuggestions
   }
 
   var init = function() {    
