@@ -80,10 +80,11 @@ var board = [
       // Generate the id of the previous selected
       var prevSelectedId = createId(selectedPeg.x, selectedPeg.y)
       document.getElementById(prevSelectedId).className = 'peg'
-      // Remove the previous suggestions
+      // Remove the previous suggestions      
       var suggestion = document.getElementsByClassName('suggestion')
-      for (var i = 0; i < suggestion.length; i++) {
-        suggestion[i].className = 'hole'
+      var length = suggestion.length
+      for (var i = 0; i < length; i++) {
+        suggestion[0].className = 'hole'
       }
     }
   }
@@ -161,7 +162,7 @@ var board = [
         // cleanup selected peg
         selectedPeg = { x: undefined, y: undefined }
         score += 10
-        endGame()
+        
         init()        
       }
     }
@@ -193,10 +194,11 @@ var board = [
 
   var endGame = function() {
     var pegs = document.getElementsByClassName('peg')//esta en la linea 50 //obtengo todos los pges
-    var peg
+    var peg    
     if (pegs.length === 1) { //si hay uno solo
       peg = getPositionFromId(pegs[0].id)//obtengo su id, ahora se su posicion
-      if (peg.x === 3 && peg.y === 3) {
+      if (peg.x === 3 && peg.y === 3) 
+      {
         gameOver('You won!')
       }
       else {
@@ -205,9 +207,8 @@ var board = [
     }
     else{
       var b = true     
-      for (var i = 0; i < pegs.length; i++) {
-        peg = getPositionFromId(pegs[i].id)//obtengo su id, ahora se su posicion
-               
+      for (var i = 0; i < pegs.length; i++) {       
+        peg = getPositionFromId(pegs[i].id)//obtengo su id, ahora se su posicion                    
         if(countSuggestions(peg)>0) {          
           b = false
         }   
@@ -382,6 +383,7 @@ var createDate=  function(day) {
     quit.onclick = quitNewScore
     var cancelScore = document.getElementById('close-score')
     cancelScore.onclick = closeRanking
+    endGame()
   } 
 
   window.onload = init
