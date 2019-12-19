@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -9,60 +9,66 @@
     <link rel="stylesheet" href="./css/micro-classes.css">
     <link rel="stylesheet" href="./css/style.css">
     <script type="text/javascript" src="./js/app.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container flex-col">
-        <header class="flex-row">
-            <div class="flex-row">
-                <div class="icon flex-col">
-                        <img src="./images/icono.png">
-                </div>
-                <div class="title">
-                        <h1>Peg Solitaire</h1>
-                </div>
-            </div>
-        </header>
-        <div class="main flex-col">
-            <div id="menu" class="flex-row">
-                <button id="new-game">New Game</button>
-                <button id="save-game">Save Game</button>
-                <button id="load-game">Load Game</button>
-                <button id="top-players">Top Players</button>
-            </div>
-            <div id="game" class="flex-col">
-                <div id="instructions" class="flex-col">
-                    <p> The goal of peg solitaire is to remove all the pegs from the board except one.
-                        Peg solitaire is played by jumping a peg over another other peg into an empty hole on the other side. 
-                        Each turn, the player captures a piece by jumping over that piece orthogonally, not diagonally.</p>
-                </div>
-                <div id="board">
-                </div>
-                <div id="score" class="flex-col">
-                    <p id="your-score"></p>
-                </div>
-            </div>
+      <header class="flex-row">
+        <div class="flex-row">
+          <div class="icon flex-col">
+            <img src="./images/icono.png">
+          </div>
+          <div class="title">
+            <h1>Peg Solitaire</h1>
+          </div>
         </div>
-        <footer class="flex-col">
-            <p><a href="https://github.com/claudiavlima/peg-solitaire" target="_blank">Link to github project</a></p>            
-        </footer>
+      </header>
+      <div class="main flex-col">
+        <div id="menu" class="flex-row">
+          <button id="new-game">New Game</button>
+          <button id="save-game">Save Game</button>
+          <button id="load-game">Load Game</button>
+          <button id="top-players">Top Players</button>
+        </div>
+        <div id="game" class="flex-col">
+          <div id="instructions" class="flex-col">
+            <p> 
+              The goal of peg solitaire is to remove all the pegs from the board except one.
+              Peg solitaire is played by jumping a peg over another other peg into an empty hole on the other side.
+              Each turn, the player captures a piece by jumping over that piece orthogonally, not diagonally.
+            </p>
+          </div>
+          <div id="board">
+          </div>
+          <div id="score" class="flex-col">
+            <p id="your-score"></p>
+          </div>
+        </div>
+      </div>
+      <footer class="flex-col">
+        <p><a href="https://github.com/claudiavlima/peg-solitaire" target="_blank">Link to github project</a></p>
+        <div class="contact flex-col">
+          <a href="contact.html"><i class="contactMe"></i>Contact Us</a>
+        </div>
+      </footer>
     </div>
     <div id="overlay" class="overlay-inactive flex-col">
-        <form id="save-score" class="pop-up-inactive">
-            <div class="flex-col"> 
-                <p id="total-score"></p>
-                <input id="player-name"/>
-                <label for="name" id="name-label" hidden>*More than 3 characters</label>
-                <button type="button" id="save-score" class="score-button">Save Score</button>
-                <button type="button" id="quit-score" class="score-button">Exit without saving</button>
-            </div> 
-        </form>
-        <div id="best-players" class="pop-up-inactive">
-            <div class="flex-col">   
-                <h1>Top players</h1>
-                <div id="scoresTable"></div>
-                <button type="button" id="close-score" class="score-button">Close</button>
-            </div>
+      <form id="save-score" class="pop-up-inactive">
+        <div class="flex-col">
+          <p id="total-score"></p>
+          <input id="player-name"/>
+          <label for="name" id="name-label" hidden>*More than 3 characters</label>
+          <button type="button" id="save-score" class="score-button">Save Score</button>
+          <button type="button" id="quit-score" class="score-button">Exit without saving</button>
         </div>
+      </form>
+      <div id="best-players" class="pop-up-inactive">
+        <div class="flex-col">
+          <h1>Top players</h1>
+          <div id="scoresTable">
+          </div>
+          <button type="button" id="close-score" class="score-button">Close</button>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
