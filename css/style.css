@@ -1,178 +1,174 @@
 .container {
-    min-height: 100%;    
+  min-height: 100%;
 }
 
 header {
-    align-self: stretch;
-    box-sizing: border-box;
-    height: 70px;
-    background-color: #333333;
-    color: red;
+  align-self: stretch;
+  box-sizing: border-box;
+  height: 70px;
+  background-color: #333333;
+  color: red;
 }
 
-header img {    
-    width: 45px;
-    height: 45px;    
-    margin-right: 15px;      
+header img {
+  width: 45px;
+  height: 45px;
+  margin-right: 15px;
 }
 
 h1 {
-    font-size: 29px;
-    font-weight: bold;    
+  font-size: 29px;
+  font-weight: bold;
 }
 
-
-
 .main {
-    align-self: stretch;
-    box-sizing: border-box;
-    flex-grow: 1;
-    justify-content: flex-start;
+  align-self: stretch;
+  box-sizing: border-box;
+  flex-grow: 1;
+  justify-content: flex-start;
 }
 
 footer {
-    align-self: stretch;
-    box-sizing: border-box;
-    height: 70px;
-    background-color: #cf541b;
-    color: black;    
+  align-self: stretch;
+  box-sizing: border-box;
+  height: 70px;
+  background-color: #cf541b;
+  color: black;
 }
 
 footer * {
-    font-size: 23px;
-    font-weight: bold; 
-    text-decoration: none;
-    color: black;
+  font-size: 23px;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
 }
 
 #menu {
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 #menu button {
-    width: 170px;
-    height: 55px;
-    margin: 12px;
-    box-shadow: 0px 1px 0px 0px #fff6af;	
-	background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);	
-	background-color: #ffec64;
-	border-radius: 6px;
-	border: 1px solid #ffaa22;
-	display: inline-block; 
-	cursor: pointer;
-	color: #333333;
-	font-family: Arial;
-	font-size: 15px;
-	font-weight: bold;
-    padding: 6px 24px;
+  width: 170px;
+  height: 55px;
+  margin: 12px;
+  box-shadow: 0px 1px 0px 0px #fff6af;
+  background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+  background-color: #ffec64;
+  border-radius: 6px;
+  border: 1px solid #ffaa22;
+  display: inline-block;
+  cursor: pointer;
+  color: #333333;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 24px;
 }
 
 #menu button:hover {
-	background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);	
-	background-color: #ffab23;
+  background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+  background-color: #ffab23;
 }
 
 #menu button:active {
-	position: relative;
-	top: 1px;
+  position: relative;
+  top: 1px;
 }
 
-#instructions {    
-    background-color: aquamarine;
-    border: 2px solid black;
-    padding: 7px;
-    margin: 7px;
+#instructions {
+  background-color: aquamarine;
+  border: 2px solid black;
+  padding: 7px;
+  margin: 7px;
 }
 
 #score {
-    width: 150px;
-    background-color: bisque;
-    border: 2px solid black;
-    padding: 7px; 
-    margin-bottom: 15px;   
+  width: 150px;
+  background-color: bisque;
+  border: 2px solid black;
+  padding: 7px;
+  margin-bottom: 15px;
 }
 
 #board {
-    margin: 15px;
-    background-color: #cccccc;
-    border-radius: 5px;
-    padding: 5px;    
+  margin: 15px;
+  background-color: #cccccc;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 #board button {
-    width: 15px;
-    height: 15px;
-    margin: 5px;
-    border: 2px solid #999;
-    border-radius: 15px;
+  width: 15px;
+  height: 15px;
+  margin: 5px;
+  border: 2px solid #999;
+  border-radius: 15px;
 }
 
 #board button.hidden {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 #board button.peg {
-    background-color: #0000aa;
+  background-color: #0000aa;
 }
 
 #board button.peg:hover {
-    background-color: #0000ff;
+  background-color: #0000ff;
 }
 
 #board button.peg:active {
-    background-color: #000066;
+  background-color: #000066;
 }
 
 #board button.hole {
-    background-color: #333333;
+  background-color: #333333;
 }
 
 #board button.hole:hover {
-    cursor: default;
+  cursor: default;
 }
 
 #board button.selected {
-    background-color: #00aa00;
+  background-color: #00aa00;
 }
 
 #board button.selected:active {
-    background-color: #006600;
+  background-color: #006600;
 }
 
 #board button.suggestion {
-    background-color: #FFCE75;
+  background-color: #FFCE75;
 }
 
 .score-button {
-    width: 150px;
-    height: 40px;
+  width: 150px;
+  height: 40px;
 }
 
 @media (min-width: 480px) {
-    #board button {
-    width: 20px;
-    height: 20px;
-    margin: 7px;
-    border-radius: 20px;    
-    }
+  #board button {
+  width: 20px;
+  height: 20px;
+  margin: 7px;
+  border-radius: 20px;
   }
+}
 
-  @media (min-width: 768px) {
-    #board button {
-    width: 33px;
-    height: 33px;
-    margin: 12px;
-    border-radius: 33px;
-    }
+@media (min-width: 768px) {
+  #board button {
+  width: 33px;
+  height: 33px;
+  margin: 12px;
+  border-radius: 33px;
   }
+}
   
-  @media (min-width: 1024px) {
-    #board button {
-    width: 40px;
-    height: 40px;
-    margin: 12px;
-    border-radius: 40px;
-    }
+@media (min-width: 1024px) {
+  #board button {
+  width: 40px;
+  height: 40px;
+  margin: 12px;
+  border-radius: 40px;
   }
-
-  
+}
