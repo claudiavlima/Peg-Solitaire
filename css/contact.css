@@ -2,7 +2,7 @@ body {
   background-color: slategray;
 }
 
-#contentContact {
+#content-contact {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -39,7 +39,7 @@ h1 {
   font-weight: bold;
 }
 
-#buttonsubmit {
+#button-submit {
   margin: 10px;
   padding: 10px;
   background-color: goldenrod;
