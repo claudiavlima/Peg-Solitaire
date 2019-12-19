@@ -134,6 +134,10 @@ header img {
   border: 2px solid black;
 }
 
+#your-score {
+  text-align: center;
+}
+
 footer * {
   font-size: 23px;
   font-weight: bold;

@@ -2,7 +2,8 @@
 var sendEmail = function() {
   var subj = document.getElementById('name').value
   var msg = document.getElementById('msg').value
-  window.open('mailto:limaclaudiav@gmail.com?subject=' + subj + '&body='+msg)
+  //window.open('mailto:limaclaudiav@gmail.com?subject=' + subj + '&body='+msg)
+  window.location.href = 'mailto:limaclaudiav@gmail.com?subject=' + subj + '&body=' + msg;
 }
 
 //Open Email Client
