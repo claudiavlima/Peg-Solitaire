@@ -56,7 +56,7 @@ var generateCell = function(cell, rowN, colN) {
   else
     html += 'hidden'
   // close html button tag
-  html += '"></button>'
+  html += '"></button>'//starts at line 48 and ends here ""
   return html
 }
 

@@ -2,20 +2,20 @@ body {
   background-color: slategray;
 }
 
-#content-contact {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100%;
-}
-
 h1 {
   margin: 33px;
   border: 3px solid;
-  text-shadow: 1px;
   font-size: 37px;
   font-weight: bold;
+  text-shadow: 1px;
+}
+
+#content-contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
 }
 
 #form {
@@ -31,9 +31,9 @@ h1 {
 }
 
 #msg {
-  margin-top: 10px;
   width: 98%;
   height: 110px;
+  margin-top: 10px;
   border-radius: 6px;
   font-size: x-large;
   font-weight: bold;
